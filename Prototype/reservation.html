@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Moffat Bay Lodge</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="top-bar">
+    <div class="logo">🌿 Moffat Bay</div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="reservation.html">Booking</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</div>
+   
+
+<div class="reservation-container">
+    <form class="reservation-form">
+        <h2 class="reservation-title">Make a Reservation</h2>
+
+        
+        <label class="reservation-label">Select Date</label>
+        <input type="date" class="reservation-input" required>
+
+     
+        <label class="reservation-label">Choose Cabin</label>
+        <select class="reservation-select" required>
+            <option value="">-- Select Cabin --</option>
+            <option>Private Cabin</option>
+            <option>Family Cabin</option>
+            <option>Couples Cabin</option>
+        </select>
+
+     
+        <label class="reservation-label">Add Experiences</label>
+
+        <div class="reservation-checkbox-group">
+            <label><input type="checkbox"> Guided Hike</label>
+            <label><input type="checkbox"> Paddleboarding</label>
+            <label><input type="checkbox"> Smore Kit</label>
+            <label><input type="checkbox"> Kayaking</label>
+            <label><input type="checkbox"> Basket Weaving</label>
+        </div>
+
+        <button type="submit" class="reservation-button">Book Now</button>
+    </form>
+</div>
+
+
+</body>
+</html>
