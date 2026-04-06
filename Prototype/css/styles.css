@@ -13,8 +13,8 @@
         }
 
         header {
-            background: linear-gradient(to right, #355e3b, #6b8e6b);
-            color: white;
+			background-color: #e6f0e6;
+            color: black;
             padding: 20px 40px;
         }
 
@@ -347,4 +347,119 @@
 
 .contact-button:hover {
     background-color: #3f6f5a;
+}
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e9e9e9;
+    padding: 40px 20px;
+}
+
+.registration-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: #f7f7f7;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    width: 320px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	
+}
+
+.requirements-box {
+    background: #f7f7f7;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    width: 320px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.requirements-box h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2f4f3f;
+}
+
+.requirements-box ul {
+    padding-left: 20px;
+}
+
+.requirements-box li {
+    margin-bottom: 8px;
+}
+
+
+.registration-title {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2f4f3f;
+    font-family: serif;
+}
+
+.registration-label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.registration-input {
+    padding: 8px;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.registration-input:focus {
+    outline: none;
+    border-color: #2f4f3f;
+}
+
+.registration-button {
+    margin-top: 15px;
+    padding: 9px;
+    background-color: #2f4f3f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.registration-button:hover {
+    background-color: green;
+}
+
+.requirements-box {
+    background: #f7f7f7;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    width: 320px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.requirements-box h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2f4f3f;
+}
+
+.requirements-box ul {
+    padding-left: 20px;
+}
+
+.requirements-box li {
+    margin-bottom: 8px;
 }
