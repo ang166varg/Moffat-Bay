@@ -1,0 +1,110 @@
+<?php
+//Start session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+
+//Database connection
+$host = "localhost";
+$dbname = "MoffatBayBooking";
+$username = "root";
+$password = ""; //MySQL password needed
+
+$conn = new mysqli($host, $username, $password, $dbname);
+
+//Checks connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+   $email_input = $_POST['email'];
+    $password_input = $_POST['password'];
+
+    //Query database for user
+    $sql = "SELECT * FROM Customer WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email_input);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+
+        //Plain text password check (simple version for school project)
+        if (password_verify($password_input, $user['password_hash'])) {
+
+            //Store session variables
+            $_SESSION['user_id'] = $user['customer_id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['success'] = "Login successful!";
+
+            //Redirect to home page
+           header("Location: /Prototype/index.php");
+            exit();
+
+        } else {
+            $error = "Invalid password";
+        }
+
+    } else {
+        $error = "User not found";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Moffat Bay Lodge</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <?php if (isset($_SESSION['success'])): ?>
+    <script>
+        alert("<?php echo $_SESSION['success']; ?>");
+    </script>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
+   <div class="top-bar">
+    <div class="logo">🌿 Moffat Bay Lodge</div>
+
+    <nav>
+        <ul>
+            <li><a href="../index.php">Home Page</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="login.php">Login Page</a></li>
+            <li><a href="reservation.html">Reservations</a></li>
+            <li><a href="reservation-summary.html">Reservation Summary</a></li>
+            <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="login-container">
+    <form class="login-form" method="POST" action="">
+        <h2 class="login-title">Login</h2>
+
+        <?php if (isset($error)): ?>
+            <p style="color:red;"><?php echo $error; ?></p>
+        <?php endif; ?>
+
+        <input type="email" name="email" class="login-input" placeholder="Email" required>
+        <input type="password" name="password" class="login-input" placeholder="Password" required>
+
+        <button type="submit" class="login-button">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

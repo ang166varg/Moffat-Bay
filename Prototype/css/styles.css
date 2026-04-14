@@ -463,3 +463,27 @@
 .requirements-box li {
     margin-bottom: 8px;
 }
+
+
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+
+.alert.success {
+    background-color: #6b8e23; 
+    color: white;
+}
+
+.alert {
+    background-color: red !important;
+}
