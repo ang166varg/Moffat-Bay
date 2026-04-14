@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = ""; //MySQL password needed
+$password = "Starship12!"; //MySQL password needed
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -22,13 +22,13 @@ if ($conn->connect_error) {
 //Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username_input = $_POST['username'];
+    $email_input = $_POST['email'];
     $password_input = $_POST['password'];
 
     //Query database for user
-    $sql = "SELECT * FROM Customer WHERE username = ?";
+    $sql = "SELECT * FROM Customer WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username_input);
+    $stmt->bind_param("s", $email_input);
     $stmt->execute();
 
     $result = $stmt->get_result();
@@ -37,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
 
         //Plain text password check (simple version for school project)
-        if ($password_input == $user['password']) {
+        if (password_verify($password_input, $user['password_hash'])) {
 
             //Store session variables
-            $_SESSION['user_id'] = $user['CustomerID'];
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_id'] = $user['customer_id'];
+            $_SESSION['email'] = $user['email'];
 
             //Redirect to home page
             header("Location: ../index.php");
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p style="color:red;"><?php echo $error; ?></p>
         <?php endif; ?>
 
-        <input type="text" name="username" class="login-input" placeholder="Username" required>
+        <input type="email" name="email" class="login-input" placeholder="Email" required>
         <input type="password" name="password" class="login-input" placeholder="Password" required>
 
         <button type="submit" class="login-button">Submit</button>
