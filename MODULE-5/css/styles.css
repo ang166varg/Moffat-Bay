@@ -29,6 +29,9 @@
             font-size: 2rem;
             font-weight: bold;
         }
+        .login-message {
+            color: #355e3b;
+        }
 
         nav ul {
             list-style: none;

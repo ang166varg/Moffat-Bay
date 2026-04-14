@@ -25,11 +25,14 @@ session_start();
     <div class="logo">🌿 Moffat Bay Lodge</div>
     
     <nav>
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <p>Welcome, <?php echo $_SESSION['email']; ?> 👋</p>
-            <a href="pages/logout.php">Logout</a>    
-        <?php endif; ?>
         <ul>
+            <li>
+                <?php if (isset($_SESSION['first_name'])): ?>
+                    <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
+                    <a href="pages/logout.php" style ="border: solid #355e3b;"
+                    >Logout</a>    
+                <?php endif; ?>
+            </li>
             <li><a href="index.php">Home Page</a></li>
             <li><a href="pages/about.html">About Us</a></li>
 			<li><a href="pages/contact.html">Contact Us</a></li>

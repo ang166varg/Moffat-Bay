@@ -1,6 +1,7 @@
 <?php
 //Start session
 if (session_status() === PHP_SESSION_NONE) {
+    
     session_start();
 }
 
@@ -24,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email_input = $_POST['email'];
     $password_input = $_POST['password'];
+    
 
     //Query database for user
     $sql = "SELECT * FROM Customer WHERE email = ?";
@@ -32,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
 
     $result = $stmt->get_result();
+    
 
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
@@ -42,6 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Store session variables
             $_SESSION['user_id'] = $user['customer_id'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['first_name'] = $user['first_name'];
+            
+            
 
             //Redirect to home page
             header("Location: ../index.php");
@@ -70,7 +76,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="logo">🌿 Moffat Bay Lodge</div>
 
     <nav>
+        
         <ul>
+            <li>
+                <?php if (isset($_SESSION['first_name'])): ?>
+                    <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
+                    <a href="logout.php" style ="border: solid #355e3b;">Logout</a>    
+                <?php endif; ?>
+            </li>
             <li><a href="../index.php">Home Page</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
