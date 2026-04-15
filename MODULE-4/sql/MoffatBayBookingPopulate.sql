@@ -24,10 +24,10 @@ ALTER TABLE Reservation_Attraction AUTO_INCREMENT = 1;
 -- RoomType
 -- Meets Moffat Bay room price requirements
 INSERT INTO RoomType (room_name, room_type, nightly_rate, max_guests, availability_status) VALUES
-('Double Full',  'Double Full Beds',  120.00, 2, 'available'),
-('Queen Room',   'Queen',             135.00, 2, 'available'),
-('Double Queen', 'Double Queen Beds', 150.00, 4, 'available'),
-('King Suite',   'King',              160.00, 2, 'available');
+('Double Full',  'Double Full Beds',  126.00, 2, 'available'),
+('Queen Room',   'Queen',             141.75, 2, 'available'),
+('Double Queen', 'Double Queen Beds', 157.50, 4, 'available'),
+('King Suite',   'King',              168.00, 2, 'available');
 
 
 -- Attraction
