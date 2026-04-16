@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = "Starship12!"; //MySQL password needed
+$password = ""; //MySQL password needed
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -86,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </li>
             <li><a href="../index.php">Home Page</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
             <li><a href="attractions.html">Attractions</a></li>
             <li><a href="registration.html">Registration</a></li>
             <li><a href="login.php">Login Page</a></li>
