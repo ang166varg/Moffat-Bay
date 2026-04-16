@@ -1,21 +1,15 @@
 <?php
-//Start session
 if (session_status() === PHP_SESSION_NONE) {
-    
     session_start();
 }
 
-
-
-//Database connection
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = ""; //MySQL password needed
+$password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-//Checks connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -85,11 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php endif; ?>
             </li>
             <li><a href="../index.php">Home Page</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.php">About Us</a></li>
             <li><a href="attractions.html">Attractions</a></li>
             <li><a href="registration.html">Registration</a></li>
             <li><a href="login.php">Login Page</a></li>
-            <li><a href="reservation.html">Reservations</a></li>
+            <li><a href="reservation.php">Reservations</a></li>
             <li><a href="reservation-summary.html">Reservation Summary</a></li>
             <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
         </ul>

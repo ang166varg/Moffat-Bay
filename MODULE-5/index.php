@@ -34,11 +34,11 @@ session_start();
                 <?php endif; ?>
             </li>
             <li><a href="index.php">Home Page</a></li>
-            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/about.php">About Us</a></li>
             <li><a href="pages/attractions.html">Attractions</a></li>
-            <li><a href="pages/registration.html">Registration</a></li>
+            <li><a href="pages/registration.php">Registration</a></li>
             <li><a href="pages/login.php">Login Page</a></li>
-			<li><a href="pages/reservation.html">Reservations</a></li>
+			<li><a href="pages/reservation.php">Reservations</a></li>
             <li><a href="pages/reservation-summary.html">Reservation Summary</a></li>
             <li><a href="pages/reservation-lookup.html">Reservation Lookup</a></li>
         </ul>
