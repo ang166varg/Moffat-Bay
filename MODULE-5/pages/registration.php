@@ -74,11 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <nav>
                 <ul>
                     <li><a href="../index.php">Home Page</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="attractions.html">Attractions</a></li>
                     <li><a href="registration.php">Registration</a></li>
                     <li><a href="login.php">Login Page</a></li>
-                    <li><a href="reservation.html">Reservations</a></li>
+                    <li><a href="reservation.php">Reservations</a></li>
                     <li><a href="reservation-summary.html">Reservation Summary</a></li>
                     <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
                 </ul>
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>
                 Register with Moffat Bay Lodge to begin planning your stay and managing your reservations.
             </p>
-            <a href="reservation.html" class="button">View Reservations</a>
+            <a href="reservation.php" class="button">View Reservations</a>
         </div>
     </section>
 

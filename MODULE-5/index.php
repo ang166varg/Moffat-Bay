@@ -52,7 +52,7 @@ session_start();
         <p>
             A peaceful lodge retreat inspired by nature, where earthy comfort meets coastal beauty.
         </p>
-        <a href="login.php" class="button">Begin Your Journey</a>
+        <a href="pages/login.php" class="button">Begin Your Journey</a>
     </div>
 </section>
 
@@ -93,7 +93,7 @@ session_start();
         <h2>Plan Your Stay</h2>
         <p>Start your reservation and step into a relaxing lodge experience.</p>
         <br>
-        <a href="pages/reservation.html" class="button">Reserve Now</a>
+        <a href="pages/reservation.php" class="button">Reserve Now</a>
     </div>
 </section>
 
