@@ -6,13 +6,15 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = "Starship12!";
+$password = ""; // Update with your actual MySQL password
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+
 }
+
 
 //Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,11 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['customer_id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['first_name'] = $user['first_name'];
+            $_SESSION['customer_id'] = $user['customer_id'];
             
             
 
-            //Redirect to home page
-            header("Location: ../index.php");
+            //Redirect to home page or reservation page if coming from reservation.php
+            $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '../index.php';
+            header("Location: " . $redirect);
             exit();
 
         } else {
@@ -93,6 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="login-container">
     <form class="login-form" method="POST" action="">
         <h2 class="login-title">Login</h2>
+
+        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'login_required'): ?>
+            <p style="color: red; margin-bottom: 10px;">You must be logged in to make a reservation.</p>
+        <?php endif; ?>
 
         <?php if (isset($error)): ?>
             <p style="color:red;"><?php echo $error; ?></p>
