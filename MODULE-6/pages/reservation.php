@@ -1,6 +1,6 @@
 <?php
 /**
- * Reservation Form
+ * reservation.php
  *
  * Description: Reservation form that loads room types from the roomtype
  *              table and attractions from the attractions table in MySQL,
@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
 $host     = "localhost";
 $dbname   = "MoffatBayBooking";
 $username = "root";
-$password = ""; // Update with your actual MySQL password
+$password = "Starship12!"; // Update with your actual MySQL password
  
 $conn = new mysqli($host, $username, $password, $dbname);
  
@@ -129,17 +129,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $attractStmt->close();
                     }
 
-                    $successMessage = "Reservation booked! Total: $" . number_format($totalCost, 2) . " for " . $nights . " night(s).";
+                    // Store reservation details in session for summary page
+                    $_SESSION['reservation_summary'] = [
+                        'reservation_id' => $newReservationId,
+                        'check_in'       => $checkIn,
+                        'check_out'      => $checkOut,
+                        'nights'         => $nights,
+                        'room_id'        => $roomId,
+                        'total_guests'   => $guestCount,
+                        'total_cost'     => $totalCost,
+                        'attractions'    => $attractionNames,
+                        'status'         => 'pending'
+                    ];
 
-                    if (!empty($attractionNames)) {
-                        $successMessage .= " Attractions added: " . implode(", ", $attractionNames) . ".";
-                    } else {
-                        $successMessage = "No attractions selected.";
-                    }
-                } else {
-                    $errorMessage = "Error saving reservation: " . $stmt->error;
+                    // Redirect to summary page
+                    header("Location: reservation-summary.php");
+                    exit();
                 }
-                $stmt->close();
             }
         }
     }
@@ -172,7 +178,6 @@ $conn->close();
                 <li><a href="registration.php">Registration</a></li>
                 <li><a href="login.php">Login Page</a></li>
                 <li><a href="reservation.php">Reservations</a></li>
-                <li><a href="reservation-summary.html">Reservation Summary</a></li>
                 <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
             </ul>
         </nav>

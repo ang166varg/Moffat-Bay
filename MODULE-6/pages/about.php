@@ -32,7 +32,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="registration.php">Registration</a></li>
                     <li><a href="login.php">Login Page</a></li>
                     <li><a href="reservation.php">Reservations</a></li>
-                    <li><a href="reservation-summary.html">Reservation Summary</a></li>
                     <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
                 </ul>
             </nav>

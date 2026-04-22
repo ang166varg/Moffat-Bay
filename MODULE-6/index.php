@@ -39,7 +39,6 @@ session_start();
             <li><a href="pages/registration.php">Registration</a></li>
             <li><a href="pages/login.php">Login Page</a></li>
 			<li><a href="pages/reservation.php">Reservations</a></li>
-            <li><a href="pages/reservation-summary.html">Reservation Summary</a></li>
             <li><a href="pages/reservation-lookup.html">Reservation Lookup</a></li>
         </ul>
     </nav>
