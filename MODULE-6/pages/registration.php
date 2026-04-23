@@ -75,12 +75,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <nav>
                 <ul>
                     <li><a href="../index.php">Home Page</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="attractions.html">Attractions</a></li>
                     <li><a href="registration.php">Registration</a></li>
                     <li><a href="login.php">Login Page</a></li>
                     <li><a href="reservation.php">Reservations</a></li>
-                    <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                    <li><a href="reservation-lookup.php">Reservation Lookup</a></li>
                 </ul>
             </nav>
         </div>
