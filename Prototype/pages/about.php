@@ -118,7 +118,37 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </div>
     </section>
+<section class="section">
+    <h2>Meet Our Team</h2>
 
+    <div class="card-container">
+
+        <div class="card">
+            <img src="../images/tevyah.jpg" alt="Tevyah Hanley" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <h3>Tevyah Hanley</h3>
+            <p>Tevyah Hanley is a software development student based in Columbus, Ohio, currently working in IT. He is building experience in both frontend and backend development.</p>
+        </div>
+
+        <div class="card">
+            <img src="../images/placeholder.png" alt="Angela Vargas" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <h3>Angela Vargas</h3>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <div class="card">
+            <img src="../images/placeholder.png" alt="Cameron M" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <h3>Cameron M</h3>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <div class="card">
+            <img src="../images/placeholder.png" alt="Zachary Anderson" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <h3>Zachary Anderson</h3>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+    </div>
+</section>
     <section class="section">
         <div class="booking-section">
             <h2>Come Experience Moffat Bay Lodge</h2>
