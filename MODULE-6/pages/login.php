@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="registration.php">Registration</a></li>
             <li><a href="login.php">Login Page</a></li>
             <li><a href="reservation.php">Reservations</a></li>
-            <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+            <li><a href="reservation-lookup.php">Reservation Lookup</a></li>
         </ul>
     </nav>
 </div>
