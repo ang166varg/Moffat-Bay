@@ -8,7 +8,7 @@ $dbname = "MoffatBayBooking";
 $username = "root";
 $password = "Starship12!";
 
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($host, $username, $password, $dbname,3307);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
