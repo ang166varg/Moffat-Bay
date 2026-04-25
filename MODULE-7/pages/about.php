@@ -135,9 +135,9 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
 
         <div class="card">
-            <img src="../images/placeholder.png" alt="Cameron M" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <img src="../images/Mendez.jpg" alt="Cameron M" style="width:100%; border-radius:10px; margin-bottom:10px;">
             <h3>Cameron M</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+         <p>Cameron Mendez is a software development student based in Fort Worth, Texas, currently working in FO Network Design. Developing hands on experience in all aspects of the 	software development lifecycle.</p>
         </div>
 
         <div class="card">
