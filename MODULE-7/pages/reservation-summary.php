@@ -50,8 +50,10 @@ unset($_SESSION['reservation_summary']);
 </head>
 <body>
 
+<header>
     <div class="top-bar">
         <div class="logo">🌿 Moffat Bay Lodge</div>
+
         <nav>
             <ul>
                 <li>
@@ -66,10 +68,11 @@ unset($_SESSION['reservation_summary']);
                 <li><a href="registration.php">Registration</a></li>
                 <li><a href="login.php">Login Page</a></li>
                 <li><a href="reservation.php">Reservations</a></li>
+                <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
             </ul>
         </nav>
     </div>
-
+</header>
     <div class="reservation-container">
         <div class="reservation-form">
             <h2 class="reservation-title">Reservation Confirmed!</h2>

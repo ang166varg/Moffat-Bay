@@ -21,29 +21,30 @@ session_start();
 <body>
 
 <!-- Navigation -->
-<div class="top-bar">
-    <div class="logo">🌿 Moffat Bay Lodge</div>
-    
-    <nav>
-        <ul>
-            <li>
-                <?php if (isset($_SESSION['first_name'])): ?>
-                    <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
-                    <a href="pages/logout.php" style ="border: solid #355e3b;"
-                    >Logout</a>    
-                <?php endif; ?>
-            </li>
-            <li><a href="index.php">Home Page</a></li>
-            <li><a href="pages/about.php">About Us</a></li>
-            <li><a href="pages/attractions.html">Attractions</a></li>
-            <li><a href="pages/registration.php">Registration</a></li>
-            <li><a href="pages/login.php">Login Page</a></li>
-			<li><a href="pages/reservation.php">Reservations</a></li>
-            <li><a href="pages/reservation-summary.html">Reservation Summary</a></li>
-            <li><a href="pages/reservation-lookup.html">Reservation Lookup</a></li>
-        </ul>
-    </nav>
-</div>
+<header>
+    <div class="top-bar">
+        <div class="logo">🌿 Moffat Bay Lodge</div>
+
+        <nav>
+            <ul>
+                <li>
+                    <?php if (isset($_SESSION['first_name'])): ?>
+                        <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
+                        <a href="pages/logout.php" style ="border: solid #355e3b;"
+                        >Logout</a>    
+                    <?php endif; ?>
+                </li>
+                <li><a href="index.php">Home Page</a></li>
+                <li><a href="pages/about.php">About Us</a></li>
+                <li><a href="pages/attractions.html">Attractions</a></li>
+                <li><a href="pages/registration.php">Registration</a></li>
+                <li><a href="pages/login.php">Login Page</a></li>
+			    <li><a href="pages/reservation.php">Reservations</a></li>
+                <li><a href="pages/reservation-lookup.html">Reservation Lookup</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <!-- Hero Section -->
 <section class="hero">

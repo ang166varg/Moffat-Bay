@@ -50,25 +50,30 @@ unset($_SESSION['reservation_summary']);
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="logo">🌿 Moffat Bay Lodge</div>
-        <nav>
-            <ul>
-                <li>
-                    <?php if (isset($_SESSION['first_name'])): ?>
-                        <p style="color: #355e3b;">Welcome, <?= htmlspecialchars($_SESSION['first_name']) ?> 👋</p>
-                        <a href="logout.php" style="border: solid #355e3b;">Logout</a>
-                    <?php endif; ?>
-                </li>
-                <li><a href="../index.php">Home Page</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="attractions.html">Attractions</a></li>
-                <li><a href="registration.php">Registration</a></li>
-                <li><a href="login.php">Login Page</a></li>
-                <li><a href="reservation.php">Reservations</a></li>
-            </ul>
-        </nav>
-    </div>
+    <header>
+        <div class="top-bar">
+            <div class="logo">🌿 Moffat Bay Lodge</div>
+
+            <nav>
+        
+                <ul>
+                    <li>
+                        <?php if (isset($_SESSION['first_name'])): ?>
+                            <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
+                            <a href="logout.php" style ="border: solid #355e3b;">Logout</a>    
+                        <?php endif; ?>
+                    </li>
+                    <li><a href="../index.php">Home Page</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="attractions.html">Attractions</a></li>
+                    <li><a href="registration.php">Registration</a></li>
+                    <li><a href="login.php">Login Page</a></li>
+                    <li><a href="reservation.php">Reservations</a></li>
+                    <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div class="reservation-container">
         <div class="reservation-form">
