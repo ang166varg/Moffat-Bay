@@ -27,7 +27,7 @@ $summary = $_SESSION['reservation_summary'];
 $host     = "localhost";
 $dbname   = "MoffatBayBooking";
 $username = "root";
-$password = "Starship12!";
+$password = "Password123!";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 

@@ -129,9 +129,9 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
 
         <div class="card">
-            <img src="../images/placeholder.png" alt="Angela Vargas" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <img src="../images/Angela.jpg" alt="Angela Vargas" style="width:100%; border-radius:10px; margin-bottom:10px;">
             <h3>Angela Vargas</h3>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+           <p>Angela Vargas is a software development student based in Loveland, Colorado, currently working as a Micromaintenece Tech for Target. She has experience with IT and in computer mechanics.</p>
         </div>
 
         <div class="card">

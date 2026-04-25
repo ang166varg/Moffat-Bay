@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $host = "localhost";
     $dbname = "MoffatBayBooking";
     $username = "root";
-    $password = "";
+    $password = "Password123!";
 
     $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $_SESSION['success'] = "Account created successfully!";
-        header("Location: /Moffat-Bay/MODULE-5/pages/login.php");
+        header("Location: /Moffat-Bay/MODULE-7/pages/login.php");
         exit();
     } else {
         echo "Error creating account: " . $stmt->error;

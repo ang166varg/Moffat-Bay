@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
 $host     = "localhost";
 $dbname   = "MoffatBayBooking";
 $username = "root";
-$password = "Starship12!"; // Update with your actual MySQL password
+$password = "Password123!"; // Update with your actual MySQL password
  
 $conn = new mysqli($host, $username, $password, $dbname);
  
