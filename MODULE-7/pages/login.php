@@ -96,7 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="login-container">
     <form class="login-form" method="POST" action="">
         <h2 class="login-title">Login</h2>
-
+        
+        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'login_required'): ?>
+            <p style="color: red; margin-bottom: 10px;">You must be logged in to make a reservation.</p>
+        <?php endif; ?>
         <?php if (isset($error)): ?>
             <p style="color:red;"><?php echo $error; ?></p>
         <?php endif; ?>
