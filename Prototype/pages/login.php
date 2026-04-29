@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = "Starship12!";
+$password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -14,14 +14,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-//Handle form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email_input = $_POST['email'];
     $password_input = $_POST['password'];
     
 
-    //Query database for user
+  
     $sql = "SELECT * FROM Customer WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email_input);
@@ -33,17 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
 
-        //Plain text password check (simple version for school project)
+      
         if (password_verify($password_input, $user['password_hash'])) {
 
-            //Store session variables
+           
             $_SESSION['user_id'] = $user['customer_id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['first_name'] = $user['first_name'];
             
             
 
-            //Redirect to home page
+           
             header("Location: ../index.php");
             exit();
 
@@ -79,13 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php endif; ?>
             </li>
             <li><a href="../index.php">Home Page</a></li>
-            <li><a href="about.php">About Us</a></li>
-            <li><a href="attractions.html">Attractions</a></li>
-            <li><a href="registration.php">Registration</a></li>
-            <li><a href="login.php">Login Page</a></li>
-            <li><a href="reservation.php">Reservations</a></li>
-            <li><a href="reservation-summary.html">Reservation Summary</a></li>
-            <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="registration.php">Registration</a></li>
+                <li><a href="login.php">Login Page</a></li>
+                <li><a href="reservation.php">Reservations</a></li>
+                <li><a href="reservation-summary.php">Reservation Summary</a></li>
         </ul>
     </nav>
 </div>

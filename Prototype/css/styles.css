@@ -466,3 +466,45 @@
 .requirements-box li {
     margin-bottom: 8px;
 }
+
+
+.lookup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.lookup-input {
+    padding: 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.lookup-input:focus {
+    outline: none;
+    border-color: #2f4f3f;
+}
+
+.lookup-button {
+    padding: 10px 16px;
+    background-color: #2f4f3f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lookup-button:hover {
+    background-color: #3f6f5a;
+}
+
+
+
+
+
+

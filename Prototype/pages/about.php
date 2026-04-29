@@ -26,14 +26,13 @@ if (session_status() === PHP_SESSION_NONE) {
                             <a href="logout.php" style="border: solid #355e3b;">Logout</a>
                         <?php endif; ?>
                     </li>
-                    <li><a href="../index.php">Home Page</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="attractions.html">Attractions</a></li>
-                    <li><a href="registration.php">Registration</a></li>
-                    <li><a href="login.php">Login Page</a></li>
-                    <li><a href="reservation.php">Reservations</a></li>
-                    <li><a href="reservation-summary.html">Reservation Summary</a></li>
-                    <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                     <li><a href="../index.php">Home Page</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="registration.php">Registration</a></li>
+                <li><a href="login.php">Login Page</a></li>
+                <li><a href="reservation.php">Reservations</a></li>
+                <li><a href="reservation-summary.php">Reservation Summary</a></li>
                 </ul>
             </nav>
         </div>

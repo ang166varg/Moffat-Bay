@@ -20,7 +20,7 @@ session_start();
 </head>
 <body>
 
-<!-- Navigation -->
+
 <div class="top-bar">
     <div class="logo">🌿 Moffat Bay Lodge</div>
     
@@ -39,8 +39,8 @@ session_start();
             <li><a href="pages/registration.php">Registration</a></li>
             <li><a href="pages/login.php">Login Page</a></li>
 			<li><a href="pages/reservation.php">Reservations</a></li>
-            <li><a href="pages/reservation-summary.html">Reservation Summary</a></li>
-            <li><a href="pages/reservation-lookup.html">Reservation Lookup</a></li>
+            <li><a href="pages/reservation-summary.php">Reservation Summary</a></li>
+            
         </ul>
     </nav>
 </div>
