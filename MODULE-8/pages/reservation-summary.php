@@ -1,129 +1,96 @@
-
-
 <?php
-/**
- * Reservation Summary Page
- *
- * Description: Displays a summary of the reservation details after submission.
- *
- * Author: Bravo Team
- * Date: 4/21/26
- */
+session_start();
 
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Redirect if no summary in session
-if (!isset($_SESSION['reservation_summary'])) {
-    header("Location: reservation.php");
-    exit();
-}
-
-$summary = $_SESSION['reservation_summary'];
-
-// Load room name from DB
-$host     = "localhost";
-$dbname   = "MoffatBayBooking";
+$host = "localhost";
+$dbname = "MoffatBayBooking";
 $username = "root";
-$password = "Password123!";
+$password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$roomStmt = $conn->prepare("SELECT room_name, room_type FROM roomtype WHERE room_id = ?");
-$roomStmt->bind_param("i", $summary['room_id']);
-$roomStmt->execute();
-$room = $roomStmt->get_result()->fetch_assoc();
-$roomStmt->close();
-$conn->close();
+$resultData = null;
+$searched = false;
 
-// Clear summary from session after reading it
-unset($_SESSION['reservation_summary']);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $searched = true;
+
+    $search = $_POST['search'];
+
+    $stmt = $conn->prepare("SELECT * FROM Reservation WHERE reservation_id = ?");
+    $stmt->bind_param("i", $search);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $resultData = $result->fetch_assoc();
+}
+
+$res = $searched ? $resultData : ($_SESSION['reservation'] ?? null);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Reservation Confirmation | Moffat Bay Lodge</title>
+    <title>Reservation Summary</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
 
 <header>
     <div class="top-bar">
         <div class="logo">🌿 Moffat Bay Lodge</div>
-
         <nav>
             <ul>
-                <li>
-                    <?php if (isset($_SESSION['first_name'])): ?>
-                        <p style="color: #355e3b;">Welcome, <?= htmlspecialchars($_SESSION['first_name']) ?> 👋</p>
-                        <a href="logout.php" style="border: solid #355e3b;">Logout</a>
-                    <?php endif; ?>
-                </li>
                 <li><a href="../index.php">Home Page</a></li>
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="attractions.html">Attractions</a></li>
                 <li><a href="registration.php">Registration</a></li>
                 <li><a href="login.php">Login Page</a></li>
                 <li><a href="reservation.php">Reservations</a></li>
-                <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                <li><a href="reservation-summary.php">Reservation Summary</a></li>
             </ul>
         </nav>
     </div>
 </header>
-    <div class="reservation-container">
-        <div class="reservation-form">
-            <h2 class="reservation-title">Reservation Confirmed!</h2>
-            <p style="color: green; margin-bottom: 20px;">
-                Thank you, <?= htmlspecialchars($_SESSION['first_name']) ?>! Your reservation has been received.
-            </p>
 
-            <table>
-                <tr>
-                    <th>Reservation ID</th>
-                    <td>#<?= $summary['reservation_id'] ?></td>
-                </tr>
-                <tr>
-                    <th>Room</th>
-                    <td><?= htmlspecialchars($room['room_name']) ?> (<?= htmlspecialchars($room['room_type']) ?>)</td>
-                </tr>
-                <tr>
-                    <th>Check-In</th>
-                    <td><?= htmlspecialchars($summary['check_in']) ?></td>
-                </tr>
-                <tr>
-                    <th>Check-Out</th>
-                    <td><?= htmlspecialchars($summary['check_out']) ?></td>
-                </tr>
-                <tr>
-                    <th>Nights</th>
-                    <td><?= $summary['nights'] ?></td>
-                </tr>
-                <tr>
-                    <th>Guests</th>
-                    <td><?= $summary['total_guests'] ?></td>
-                </tr>
-                <tr>
-                    <th>Attractions</th>
-                    <td><?= !empty($summary['attractions']) ? htmlspecialchars(implode(", ", $summary['attractions'])) : "None selected" ?></td>
-                </tr>
-                <tr>
-                    <th>Total Cost</th>
-                    <td>$<?= number_format($summary['total_cost'], 2) ?></td>
-                </tr>
-                <tr>
-                    <th>Status</th>
-                    <td>Pending</td>
-                </tr>
-            </table>
+<div class="login-container">
 
-            <br>
-            <a href="reservation.php" class="reservation-button">Make Another Reservation</a>
-            <a href="../index.php" class="reservation-button">Back to Home</a>
-        </div>
+    <div class="login-form">
+
+        <h2 class="login-title">Reservation Summary</h2>
+
+        <form method="POST" class="lookup-form">
+            <input type="text" name="search" class="login-input" placeholder="Enter Reservation ID" required>
+            <button class="login-button">Search</button>
+        </form>
+
+ 
+        <?php if ($res): ?>
+
+            <p><strong>ID:</strong> <?= $res['reservation_id'] ?? $res['id']; ?></p>
+            <p><strong>Date:</strong> <?= date("F j, Y", strtotime($res['reservation_date'] ?? $res['date'])); ?></p>
+            <p><strong>Room:</strong> <?= $res['room_type'] ?? $res['room']; ?></p>
+            <p><strong>Guests:</strong> <?= $res['guest_count'] ?? $res['guests']; ?></p>
+            <p><strong>Experiences:</strong> <?= $res['experiences']; ?></p>
+
+        <?php elseif ($searched): ?>
+
+            <p style="color:red;">No reservation found.</p>
+
+        <?php else: ?>
+
+            <p style="text-align:center;">Search for a reservation above.</p>
+
+        <?php endif; ?>
+
+        <br>
+
+        <a href="reservation.php" class="login-button" style="text-align:center;">Make New Reservation</a>
+
     </div>
+
+</div>
 
 </body>
 </html>

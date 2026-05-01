@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $host = "localhost";
     $dbname = "MoffatBayBooking";
     $username = "root";
-    $password = "Password123!";
+    $password = "";
 
     $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("
+    
         INSERT INTO Customer (first_name, last_name, email, phone, password_hash)
         VALUES (?, ?, ?, ?, ?)
     ");
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $_SESSION['success'] = "Account created successfully!";
-        header("Location: /Moffat-Bay/MODULE-7/pages/login.php");
+        header("Location: login.php");
         exit();
     } else {
         echo "Error creating account: " . $stmt->error;
@@ -73,18 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <nav>
                 <ul>
-                    <li>
-                        <?php if (isset($_SESSION['first_name'])): ?>
-                            <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
-                            <a href="logout.php" style="border: solid #355e3b;">Logout</a>
-                        <?php endif; ?>
                     <li><a href="../index.php">Home Page</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="attractions.html">Attractions</a></li>
-                    <li><a href="registration.php">Registration</a></li>
-                    <li><a href="login.php">Login Page</a></li>
-                    <li><a href="reservation.php">Reservations</a></li>
-                    <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="registration.php">Registration</a></li>
+                <li><a href="login.php">Login Page</a></li>
+                <li><a href="reservation.php">Reservations</a></li>
+                <li><a href="reservation-summary.php">Reservation Summary</a></li>
                 </ul>
             </nav>
         </div>
@@ -96,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>
                 Register with Moffat Bay Lodge to begin planning your stay and managing your reservations.
             </p>
-            <a href="reservation.php" class="button">View Reservations</a>
+            <a href="reservation.html" class="button">View Reservations</a>
         </div>
     </section>
 
