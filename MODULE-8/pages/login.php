@@ -6,7 +6,11 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
+<<<<<<< HEAD
 $password = "Bangarang4$";
+=======
+$password = "Starship12!";
+>>>>>>> e2491ea3949a493e787903e83d484c45f6428867
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -40,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['customer_id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['first_name'] = $user['first_name'];
+            
             
             
 
@@ -91,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="registration.php">Registration</a></li>
                     <li><a href="login.php">Login Page</a></li>
                     <li><a href="reservation.php">Reservations</a></li>
-                    <li><a href="reservation-lookup.html">Reservation Lookup</a></li>
+                    <li><a href="reservation-lookup.php">Reservation Lookup</a></li>
                 </ul>
             </nav>
         </div>
