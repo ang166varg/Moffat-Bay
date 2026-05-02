@@ -439,6 +439,8 @@ footer {
 
 .requirements-box li {
     margin-bottom: 8px;
+<<<<<<< HEAD
+=======
 }
 
 /* LOOKUP */
@@ -475,4 +477,5 @@ footer {
 
 .lookup-button:hover {
     background-color: #3f6f5a;
+>>>>>>> main
 }
