@@ -5,7 +5,7 @@ session_start();
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = "";
+$password = "Bangarang4$";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 

@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-$password = "Password123!";
+$password = "Bangarang4$";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
