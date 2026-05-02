@@ -39,7 +39,11 @@ $res = $searched ? $resultData : ($_SESSION['reservation'] ?? null);
 
 <header>
     <div class="top-bar">
-        <div class="logo">🌿 Moffat Bay Lodge</div>
+         <div class="logo">
+   	 <img src="/Moffat-Bay/images/MoffatBayLogo.png" alt="Logo">
+   	 <span>Moffat Bay Lodge</span>
+	</div>
+
         <nav>
             <ul>
                 <li><a href="../index.php">Home Page</a></li>
