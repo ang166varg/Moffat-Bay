@@ -6,11 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host = "localhost";
 $dbname = "MoffatBayBooking";
 $username = "root";
-<<<<<<< HEAD
-$password = "Bangarang4$";
-=======
 $password = "Starship12!";
->>>>>>> e2491ea3949a493e787903e83d484c45f6428867
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -76,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <div class="top-bar">
         <div class="logo">
-   	 <img src="/Moffat-Bay/images/MoffatBayLogo.png" alt="Logo">
+   	 <img src="../images/MoffatBayLogo.png" alt="Logo">
    	 <span>Moffat Bay Lodge</span>
 	</div>
 
@@ -109,6 +105,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (isset($_GET['msg']) && $_GET['msg'] === 'login_required'): ?>
             <p style="color: red; margin-bottom: 10px;">You must be logged in to make a reservation.</p>
         <?php endif; ?>
+        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'lookup'): ?>
+            <p style="color:red; text-align:center;">
+                Please log in to look up your reservation.
+            </p>
+        <?php endif; ?>
+
         <?php if (isset($error)): ?>
             <p style="color:red;"><?php echo $error; ?></p>
         <?php endif; ?>

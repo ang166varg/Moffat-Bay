@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <header>
         <div class="top-bar">
         <div class="logo">
-   	 <img src="/Moffat-Bay/images/MoffatBayLogo.png" alt="Logo">
+   	 <img src="../images/MoffatBayLogo.png" alt="Logo">
    	 <span>Moffat Bay Lodge</span>
 	</div>
 

@@ -27,11 +27,7 @@ $summary = $_SESSION['reservation_summary'];
 $host     = "localhost";
 $dbname   = "MoffatBayBooking";
 $username = "root";
-<<<<<<< HEAD
-$password = "Bangarang4$";
-=======
 $password = "Starship12!";
->>>>>>> e2491ea3949a493e787903e83d484c45f6428867
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -57,7 +53,7 @@ unset($_SESSION['reservation_summary']);
 <header>
     <div class="top-bar">
          <div class="logo">
-   	 <img src="/Moffat-Bay/images/MoffatBayLogo.png" alt="Logo">
+   	 <img src="../images/MoffatBayLogo.png" alt="Logo">
    	 <span>Moffat Bay Lodge</span>
 	</div>
 
