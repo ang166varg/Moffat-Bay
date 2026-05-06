@@ -39,7 +39,7 @@ session_start();
                 </li>
                 <li><a href="index.php">Home Page</a></li>
                 <li><a href="pages/about.php">About Us</a></li>
-                <li><a href="pages/attractions.html">Attractions</a></li>
+                <li><a href="pages/attractions.php">Attractions</a></li>
                 <li><a href="pages/registration.php">Registration</a></li>
                 <li><a href="pages/login.php">Login Page</a></li>
 			    <li><a href="pages/reservation.php">Reservations</a></li>

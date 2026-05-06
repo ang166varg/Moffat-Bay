@@ -71,11 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <header>
         <div class="top-bar">
-        <div class="logo">
-   	 <img src="../images/MoffatBayLogo.png" alt="Logo">
-   	 <span>Moffat Bay Lodge</span>
-	</div>
-
 
             <nav>
         
@@ -88,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </li>
                     <li><a href="../index.php">Home Page</a></li>
                     <li><a href="about.php">About Us</a></li>
-                    <li><a href="attractions.html">Attractions</a></li>
+                    <li><a href="attractions.php">Attractions</a></li>
                     <li><a href="registration.php">Registration</a></li>
                     <li><a href="login.php">Login Page</a></li>
                     <li><a href="reservation.php">Reservations</a></li>
