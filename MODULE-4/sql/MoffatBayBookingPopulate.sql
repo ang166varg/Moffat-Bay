@@ -35,8 +35,8 @@ INSERT INTO RoomType (room_name, room_type, nightly_rate, max_guests, availabili
 INSERT INTO Attraction (attraction_name, description, activity_type) VALUES
 ('Hiking',         'Scenic trails through old growth forest and coastal ridgelines',          'Hiking'),
 ('Kayaking',       'Guided kayak tours through calm bay waters and sea caves',                'Kayaking'),
-('Salmon Fishing', 'Seasonal salmon fishing charters departing from Moffat Bay docks',         'Salmon Fishing'),
-('Jet Skiing',   'Jet Skiing in the lake near Moffat Bay Lodge', 'Jet Skiing');
+('Whale Watching', 'Seasonal whale watching charters departing from Moffat Bay docks',         'Whale Watching'),
+('Scuba Diving',   'Scuba diving in the bay near Moffat Bay Lodge, guided  by expert divers', 'Scuba Diving');
 
 
 -- Customer
