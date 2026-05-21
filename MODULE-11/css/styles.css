@@ -143,11 +143,44 @@ nav ul li a:hover {
 }
 
 .card {
-    background-color: #ffffff;
-    padding: 20px;
+    position: relative;
     border-radius: 15px;
     border: 1px solid #d6e5d6;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    min-height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Normal state — white background covers the image */
+.card-default {
+    position: relative;
+    z-index: 2;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100%;
+    transition: opacity 0.4s ease;
+}
+
+/* Image overlay — sits behind card-default, invisible until hover */
+.card-hover {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* On hover: fade out the white content, fade in the image */
+.card:hover .card-default {
+    opacity: 0;
+}
+
+.card:hover .card-hover {
+    opacity: 1;
 }
 
 .card h3 {
@@ -439,8 +472,7 @@ footer {
 
 .requirements-box li {
     margin-bottom: 8px;
-<<<<<<< HEAD
-=======
+    <<<<<<< HEAD=======
 }
 
 
@@ -477,5 +509,5 @@ footer {
 
 .lookup-button:hover {
     background-color: #3f6f5a;
->>>>>>> main
+    >>>>>>>main
 }

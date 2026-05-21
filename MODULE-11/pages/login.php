@@ -70,8 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <header>
-        <div class="top-bar">
 
+        <div class="top-bar">
+            <div class="logo">
+                
+                <span>Moffat Bay Lodge</span>
+            </div>
             <nav>
         
                 <ul>

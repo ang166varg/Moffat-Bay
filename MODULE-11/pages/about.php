@@ -16,7 +16,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <header>
         <div class="top-bar">
-
+            <div class="logo">
+                
+                <span>Moffat Bay Lodge</span>
+            </div>
 
             <nav>
                 <ul>

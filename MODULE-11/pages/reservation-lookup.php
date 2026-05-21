@@ -1,12 +1,11 @@
+
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the reservation lookup page for the Moffat Bay Lodge project. It allows users to search for their reservations by ID.
+-->
 <?php
-/**
- * Reservation Lookup Page
- *
- * Description: Allows users to look up a reservation by ID.
- *
- * Author: Bravo Team
- * Date: 5/2/26
- */
+
  
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -78,6 +77,10 @@ $conn->close();
  
 <header>
     <div class="top-bar">
+        <div class="logo">
+            
+            <span>Moffat Bay Lodge</span>
+        </div>
         <nav>
             <ul>
                 <li>

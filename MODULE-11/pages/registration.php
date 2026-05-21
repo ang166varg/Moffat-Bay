@@ -1,39 +1,44 @@
+
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the registration page for the Moffat Bay Lodge project. It allows users to create new accounts.
+-->
 <?php
-/* Enable full error reporting during development */
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-/* Start a session only if one is not already active */
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    /* ── Database connection settings ───────────────────────────────────── */
+
     $host = "localhost";
     $dbname = "MoffatBayBooking";
     $username = "root";
-    $password = "Starship12!";          // Update with your actual database credentials
+    $password = "Starship12!";
 
     $conn = new mysqli($host, $username, $password, $dbname);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    /* Collect and validate form data */
+
     $first = $_POST['firstName'];
     $last = $_POST['lastName'];
     $email = $_POST['email'];
     $phone = $_POST['telephone'];
     $pass = $_POST['password'];
     $confirm = $_POST['confirmPassword'];
-    /* If passwords do not match, alert the user and stop execution */
+
     if ($pass !== $confirm) {
         echo "<script>alert('Passwords do not match'); window.history.back();</script>";
         exit();
     }
-    /* Hash Passwords*/
+
     $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
-    /*SQL statement to insert new customer into the database using prepared statements to prevent SQL injection*/
+
     $stmt = $conn->prepare("
         INSERT INTO Customer (first_name, last_name, email, phone, password_hash)
         VALUES (?, ?, ?, ?, ?)
@@ -42,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$stmt) {
         die("Prepare failed: " . $conn->error);
     }
-    /* Bind parameters and execute the statement */
+
     $stmt->bind_param("sssss", $first, $last, $email, $phone, $hashedPass);
 
     if ($stmt->execute()) {
@@ -52,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error creating account: " . $stmt->error;
     }
- /* Close the statement and connection */
+
     $stmt->close();
     $conn->close();
 }
@@ -70,7 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <header>
         <div class="top-bar">
-
+            <div class="logo">
+                
+                <span>Moffat Bay Lodge</span>
+            </div>
             <nav>
                 <ul>
                     <li>

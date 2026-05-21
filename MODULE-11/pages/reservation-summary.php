@@ -1,14 +1,10 @@
 
-
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the reservation summary page for the Moffat Bay Lodge project. It displays a summary of the reservation details after a user submits a reservation. It retrieves the reservation summary from the session and displays it in a user-friendly format.
+-->
 <?php
-/**
- * Reservation Summary Page
- *
- * Description: Displays a summary of the reservation details after submission.
- *
- * Author: Bravo Team
- * Date: 4/21/26
- */
 
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -52,6 +48,10 @@ unset($_SESSION['reservation_summary']);
 
 <header>
     <div class="top-bar">
+        <div class="logo">
+            
+            <span>Moffat Bay Lodge</span>
+        </div>
 
 
         <nav>

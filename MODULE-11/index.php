@@ -1,5 +1,6 @@
 <!--
-Bravo Team
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
 Landing Page for Moffat Bay Lodge
 Acts as first page to greet users and provide navigation to other pages
 

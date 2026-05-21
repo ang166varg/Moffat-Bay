@@ -1,15 +1,11 @@
+
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the reservation page for the Moffat Bay Lodge project. It allows users to select a room and attractions for their stay.
+-->
 <?php
-/**
- * reservation.php
- *
- * Description: Reservation form that loads room types from the roomtype
- *              table and attractions from the attractions table in MySQL,
- *              then saves a new booking to the Reservation table.
- *
- * Author: Bravo Team
- * Date: 4/18/26
- */
- 
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); 
 }
@@ -25,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
 $host     = "localhost";
 $dbname   = "MoffatBayBooking";
 $username = "root";
-$password = "Password123!"; // Update with your actual MySQL password
+$password = "Starship12!"; // Update with your actual MySQL password
  
 $conn = new mysqli($host, $username, $password, $dbname);
  
@@ -164,6 +160,10 @@ $conn->close();
  
     <header>
         <div class="top-bar">
+            <div class="logo">
+                
+                <span>Moffat Bay Lodge</span>
+            </div>
 
             <nav>
         
