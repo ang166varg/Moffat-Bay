@@ -1,9 +1,11 @@
-
 <!--
 Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
 CSD460 - Software Development Capstone
 Description - This is the registration page for the Moffat Bay Lodge project. It allows users to create new accounts.
 -->
+<?php
+$heroImg = '../images/lodge/lakeChairs1.jpg';
+?>
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -11,6 +13,7 @@ ini_set('display_errors', 1);
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -69,14 +72,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Registration | Moffat Bay Lodge</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="image" href="<?php echo $heroImg; ?>">
 </head>
 
-<body>
+<body style="background-image: url('<?php echo $heroImg; ?>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+">
 
     <header>
         <div class="top-bar">
             <div class="logo">
-                
+
                 <span>Moffat Bay Lodge</span>
             </div>
             <nav>
@@ -98,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="background-image: url('<?php echo $heroImg; ?>');">
         <div class="hero-overlay">
             <h1>Create Your Account</h1>
             <p>
@@ -114,69 +124,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form class="registration-form" method="POST">
                 <h2 class="registration-title">Guest Registration</h2>
 
-                
+
 
                 <label class="registration-label" for="firstName">First Name</label>
-                <input 
-                    class="registration-input" 
-                    type="text" 
-                    id="firstName" 
-                    name="firstName" 
-                    required>
+                <input class="registration-input" type="text" id="firstName" name="firstName" required>
 
                 <label class="registration-label" for="lastName">Last Name</label>
-                <input 
-                    class="registration-input" 
-                    type="text" 
-                    id="lastName" 
-                    name="lastName" 
-                    required>
+                <input class="registration-input" type="text" id="lastName" name="lastName" required>
 
                 <label class="registration-label" for="email">Email Address</label>
-                <input 
-                    class="registration-input" 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required
+                <input class="registration-input" type="email" id="email" name="email" required
                     placeholder="example@email.com"
                     title="Enter a valid email address (example: bob@something.com). This will be your username.">
 
                 <label class="registration-label" for="telephone">Telephone</label>
-                <input 
-                    class="registration-input" 
-                    type="tel" 
-                    id="telephone" 
-                    name="telephone" 
-                    required
+                <input class="registration-input" type="tel" id="telephone" name="telephone" required
                     placeholder="(555) 555-5555"
                     title="Enter a valid phone number so we are able to contact you about your reservation.">
 
                 <label class="registration-label" for="password">Password</label>
-                <input 
-                    class="registration-input" 
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    minlength="8"
+                <input class="registration-input" type="password" id="password" name="password" required minlength="8"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one number.">
-				<p style="font-size: 14px; color: #555; margin-top: 5px;">
-				Password must:
-				<br>• Be at least 8 characters
-				<br>• Include one uppercase letter
-				<br>• Include one lowercase letter
-				<br>• Include one number
-				</p>
+                <p style="font-size: 14px; color: #555; margin-top: 5px;">
+                    Password must:
+                    <br>• Be at least 8 characters
+                    <br>• Include one uppercase letter
+                    <br>• Include one lowercase letter
+                    <br>• Include one number
+                </p>
 
                 <label class="registration-label" for="confirmPassword">Confirm Password</label>
-                <input 
-                    class="registration-input" 
-                    type="password" 
-                    id="confirmPassword" 
-                    name="confirmPassword"
-                    required
+                <input class="registration-input" type="password" id="confirmPassword" name="confirmPassword" required
                     title="Re-enter password to confirm it matches.">
 
                 <button class="registration-button" type="submit">Create Account</button>
@@ -187,7 +166,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <ul>
                     <li>All customers will be assigned a unique customer ID.</li>
                     <li>Email will be used as the username.</li>
-                    <li>Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number.</li>
+                    <li>Password must be at least 8 characters long and include one uppercase letter, one lowercase
+                        letter, and one number.</li>
                     <li>Email must follow a standard format (example: bob@something.com).</li>
                     <li>Passwords will be securely hashed or encrypted.</li>
                 </ul>
@@ -203,4 +183,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 
 </body>
+
 </html>

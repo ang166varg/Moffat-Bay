@@ -1,7 +1,19 @@
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the about page for the Moffat Bay Lodge project. It provides information about the lodge, its mission, and contact details. It also introduces the team members behind the project.
+-->
+<?php
+$heroImg = '../images/lodge/dock1.jpg';
+?>
+
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +22,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <title>About Us | Moffat Bay Lodge</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="image" href="<?php echo $heroImg; ?>">
 </head>
 
 <body>
@@ -17,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <header>
         <div class="top-bar">
             <div class="logo">
-                
+
                 <span>Moffat Bay Lodge</span>
             </div>
 
@@ -41,7 +54,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="background-image: url('<?php echo $heroImg; ?>');">
         <div class="hero-overlay">
             <h1>About Moffat Bay Lodge</h1>
             <p>
@@ -120,37 +133,47 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </div>
     </section>
-<section class="section">
-    <h2>Meet Our Team</h2>
+    <section class="section">
+        <h2>Meet Our Team</h2>
 
-    <div class="card-container">
+        <div class="card-container">
 
-        <div class="card">
-            <img src="../images/tevyah.jpg" alt="Tevyah Hanley" style="width:100%; border-radius:10px; margin-bottom:10px;">
-            <h3>Tevyah Hanley</h3>
-            <p>Tevyah Hanley is a software development student based in Columbus, Ohio, currently working in IT. He is building experience in both frontend and backend development.</p>
+            <div class="card">
+                <img src="../images/tevyah.jpg" alt="Tevyah Hanley"
+                    style="width:100%; border-radius:10px; margin-bottom:10px;">
+                <h3>Tevyah Hanley</h3>
+                <p>Tevyah Hanley is a software development student based in Columbus, Ohio, currently working in IT. He
+                    is building experience in both frontend and backend development.</p>
+            </div>
+
+            <div class="card">
+                <img src="../images/Angela.jpg" alt="Angela Vargas"
+                    style="width:100%; border-radius:10px; margin-bottom:10px;">
+                <h3>Angela Vargas</h3>
+                <p>Angela Vargas is a software development student based in Loveland, Colorado, currently working as a
+                    Micromaintenece Tech for Target. She has experience with IT and in computer mechanics.</p>
+            </div>
+
+            <div class="card">
+                <img src="../images/Mendez.jpg" alt="Cameron M"
+                    style="width:100%; border-radius:10px; margin-bottom:10px;">
+                <h3>Cameron M</h3>
+                <p>Cameron Mendez is a software development student based in Fort Worth, Texas, currently working in FO
+                    Network Design. Developing hands on experience in all aspects of the software development lifecycle.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="../images/zacharyA.jpg" alt="Zachary Anderson"
+                    style="width:100%; border-radius:10px; margin-bottom:10px;">
+                <h3>Zachary Anderson</h3>
+                <p>Zachary is a software development student based in Modesto,California. He currently is working
+                    outside of the IT profession but hopes witha degree in the field to transfer into it. The experience
+                    from this program has been incredibly beneficial to his skills.</p>
+            </div>
+
         </div>
-
-        <div class="card">
-            <img src="../images/Angela.jpg" alt="Angela Vargas" style="width:100%; border-radius:10px; margin-bottom:10px;">
-            <h3>Angela Vargas</h3>
-           <p>Angela Vargas is a software development student based in Loveland, Colorado, currently working as a Micromaintenece Tech for Target. She has experience with IT and in computer mechanics.</p>
-        </div>
-
-        <div class="card">
-            <img src="../images/Mendez.jpg" alt="Cameron M" style="width:100%; border-radius:10px; margin-bottom:10px;">
-            <h3>Cameron M</h3>
-         <p>Cameron Mendez is a software development student based in Fort Worth, Texas, currently working in FO Network Design. Developing hands on experience in all aspects of the 	software development lifecycle.</p>
-        </div>
-
-        <div class="card">
-            <img src="../images/zacharyA.jpg" alt="Zachary Anderson" style="width:100%; border-radius:10px; margin-bottom:10px;">
-            <h3>Zachary Anderson</h3>
-           <p>Zachary is a software development student based in Modesto,California. He currently is working outside of the IT profession but hopes witha degree in the field to transfer into it. The experience from this program has been incredibly beneficial to his skills.</p>
-        </div>
-
-    </div>
-</section>
+    </section>
     <section class="section">
         <div class="booking-section">
             <h2>Come Experience Moffat Bay Lodge</h2>
@@ -169,4 +192,5 @@ if (session_status() === PHP_SESSION_NONE) {
     </footer>
 
 </body>
+
 </html>

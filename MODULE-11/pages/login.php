@@ -1,3 +1,11 @@
+<!--
+Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
+CSD460 - Software Development Capstone
+Description - This is the login page for the Moffat Bay Lodge project. It allows users to log in to their accounts.
+-->
+<?php
+$heroImg = '../images/lodge/hikingvista.jpg';
+?>
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -19,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email_input = $_POST['email'];
     $password_input = $_POST['password'];
-    
+
 
     //Query database for user
     $sql = "SELECT * FROM Customer WHERE email = ?";
@@ -28,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
 
     $result = $stmt->get_result();
-    
+
 
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
@@ -40,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['customer_id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['first_name'] = $user['first_name'];
-            
-            
-            
+
+
+
 
             //Redirect to home page
             header("Location: ../index.php");
@@ -66,23 +74,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Moffat Bay Lodge</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+
+<body style="background-image: url('<?php echo $heroImg; ?>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+">
 
 
     <header>
 
         <div class="top-bar">
             <div class="logo">
-                
+
                 <span>Moffat Bay Lodge</span>
             </div>
             <nav>
-        
+
                 <ul>
                     <li>
                         <?php if (isset($_SESSION['first_name'])): ?>
                             <p style="color: #355e3b;">Welcome, <?php echo $_SESSION['first_name']; ?> 👋</p>
-                            <a href="logout.php" style ="border: solid #355e3b;">Logout</a>    
+                            <a href="logout.php" style="border: solid #355e3b;">Logout</a>
                         <?php endif; ?>
                     </li>
                     <li><a href="../index.php">Home Page</a></li>
@@ -97,29 +112,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </header>
 
-<div class="login-container">
-    <form class="login-form" method="POST" action="">
-        <h2 class="login-title">Login</h2>
-        
-        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'login_required'): ?>
-            <p style="color: red; margin-bottom: 10px;">You must be logged in to make a reservation.</p>
-        <?php endif; ?>
-        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'lookup'): ?>
-            <p style="color:red; text-align:center;">
-                Please log in to look up your reservation.
-            </p>
-        <?php endif; ?>
+    <div class="login-container">
+        <form class="login-form" method="POST" action="">
+            <h2 class="login-title">Login</h2>
 
-        <?php if (isset($error)): ?>
-            <p style="color:red;"><?php echo $error; ?></p>
-        <?php endif; ?>
+            <?php if (isset($_GET['msg']) && $_GET['msg'] === 'login_required'): ?>
+                <p style="color: red; margin-bottom: 10px;">You must be logged in to make a reservation.</p>
+            <?php endif; ?>
+            <?php if (isset($_GET['msg']) && $_GET['msg'] === 'lookup'): ?>
+                <p style="color:red; text-align:center;">
+                    Please log in to look up your reservation.
+                </p>
+            <?php endif; ?>
 
-        <input type="email" name="email" class="login-input" placeholder="Email" required>
-        <input type="password" name="password" class="login-input" placeholder="Password" required>
+            <?php if (isset($error)): ?>
+                <p style="color:red;"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-        <button type="submit" class="login-button">Submit</button>
-    </form>
-</div>
+            <input type="email" name="email" class="login-input" placeholder="Email" required>
+            <input type="password" name="password" class="login-input" placeholder="Password" required>
+
+            <button type="submit" class="login-button">Submit</button>
+        </form>
+    </div>
 
 </body>
+
 </html>

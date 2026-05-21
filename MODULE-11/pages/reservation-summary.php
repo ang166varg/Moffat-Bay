@@ -1,9 +1,11 @@
-
 <!--
 Bravo Team - Tevyah Hanley, Angela Vargas, Cameron Mendez, Zachary Anderson
 CSD460 - Software Development Capstone
 Description - This is the reservation summary page for the Moffat Bay Lodge project. It displays a summary of the reservation details after a user submits a reservation. It retrieves the reservation summary from the session and displays it in a user-friendly format.
 -->
+<?php
+$heroImg = '../images/lodge/Log Cabin1.jpg';
+?>
 <?php
 
 
@@ -20,8 +22,8 @@ if (!isset($_SESSION['reservation_summary'])) {
 $summary = $_SESSION['reservation_summary'];
 
 // Load room name from DB
-$host     = "localhost";
-$dbname   = "MoffatBayBooking";
+$host = "localhost";
+$dbname = "MoffatBayBooking";
 $username = "root";
 $password = "Starship12!";
 
@@ -39,40 +41,49 @@ unset($_SESSION['reservation_summary']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Reservation Confirmation | Moffat Bay Lodge</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<!-- Set the hero image for the page -->
 
-<header>
-    <div class="top-bar">
-        <div class="logo">
-            
-            <span>Moffat Bay Lodge</span>
+<body style="background-image: url('<?php echo $heroImg; ?>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+">
+
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+
+                <span>Moffat Bay Lodge</span>
+            </div>
+
+
+            <nav>
+                <ul>
+                    <li>
+                        <?php if (isset($_SESSION['first_name'])): ?>
+                            <p style="color: #355e3b;">Welcome, <?= htmlspecialchars($_SESSION['first_name']) ?> 👋</p>
+                            <a href="logout.php" style="border: solid #355e3b;">Logout</a>
+                        <?php endif; ?>
+                    </li>
+                    <li><a href="../index.php">Home Page</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="attractions.php">Attractions</a></li>
+                    <li><a href="registration.php">Registration</a></li>
+                    <li><a href="login.php">Login Page</a></li>
+                    <li><a href="reservation.php">Reservations</a></li>
+                    <li><a href="reservation-lookup.php">Reservation Lookup</a></li>
+                </ul>
+            </nav>
         </div>
-
-
-        <nav>
-            <ul>
-                <li>
-                    <?php if (isset($_SESSION['first_name'])): ?>
-                        <p style="color: #355e3b;">Welcome, <?= htmlspecialchars($_SESSION['first_name']) ?> 👋</p>
-                        <a href="logout.php" style="border: solid #355e3b;">Logout</a>
-                    <?php endif; ?>
-                </li>
-                <li><a href="../index.php">Home Page</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="attractions.php">Attractions</a></li>
-                <li><a href="registration.php">Registration</a></li>
-                <li><a href="login.php">Login Page</a></li>
-                <li><a href="reservation.php">Reservations</a></li>
-                <li><a href="reservation-lookup.php">Reservation Lookup</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
     <div class="reservation-container">
         <div class="reservation-form">
             <h2 class="reservation-title">Reservation Confirmed!</h2>
@@ -107,7 +118,8 @@ unset($_SESSION['reservation_summary']);
                 </tr>
                 <tr>
                     <th>Attractions</th>
-                    <td><?= !empty($summary['attractions']) ? htmlspecialchars(implode(", ", $summary['attractions'])) : "None selected" ?></td>
+                    <td><?= !empty($summary['attractions']) ? htmlspecialchars(implode(", ", $summary['attractions'])) : "None selected" ?>
+                    </td>
                 </tr>
                 <tr>
                     <th>Total Cost</th>
@@ -126,4 +138,5 @@ unset($_SESSION['reservation_summary']);
     </div>
 
 </body>
+
 </html>

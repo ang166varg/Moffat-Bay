@@ -6,10 +6,14 @@ Description - This is the attractions page for the Moffat Bay Lodge project. It 
               from the database and displays it in a user-friendly format.
 -->
 <?php
+$heroImg = '../images/lodge/activities1.png';
+?>
+<?php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 
 $host = "localhost";
 $dbname = "MoffatBayBooking";
@@ -36,6 +40,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <title>Attractions | Moffat Bay Lodge</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="image" href="<?php echo $heroImg; ?>">
 </head>
 
 <body>
@@ -67,7 +72,7 @@ $result = $conn->query($sql);
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="background-image: url('<?php echo $heroImg; ?>');">
         <div class="hero-overlay">
             <h1>Island Attractions</h1>
             <p>
